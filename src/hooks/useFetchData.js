@@ -8,8 +8,8 @@ function useFetchData() {
   useEffect(() => {
     const fetchQuestions = async () => {
       const queInfo = await axios.get(
-        // "http://localhost:7001/api/v1/get-questions"
-        "http://127.0.0.1:8000/api/v1/quizbank/createquiz/"
+        "https://quizconnectdb.herokuapp.com/api/v1/quizbank/createquiz/"
+        // "http://127.0.0.1:8000/api/v1/quizbank/createquiz/"
       );
       setQuestionInfo(queInfo.data.data);
     };
