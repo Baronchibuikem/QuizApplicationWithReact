@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 function useFetchData() {
   const [questionInfo, setQuestionInfo] = useState([]);
 
+  const route = axios.create({
+    baseURL: "https://quizconnectdb.herokuapp.com/api/v1",
+  });
+  let config = { headers: { "Content-Type": "application/json" } };
+
   useEffect(() => {
     const fetchQuestions = async () => {
-      const queInfo = await axios.get(
-        `https://quizconnectdb.herokuapp.com/api/v1/quizbank/createquiz/`
-        // "http://127.0.0.1:8000/api/v1/quizbank/createquiz/"
-      );
+      const queInfo = await route.get("/quizbank/createquiz/", config);
       setQuestionInfo(queInfo.data.data);
     };
     fetchQuestions();
