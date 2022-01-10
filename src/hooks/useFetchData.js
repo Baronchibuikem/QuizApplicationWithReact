@@ -12,7 +12,7 @@ function useFetchData() {
   useEffect(() => {
     const fetchQuestions = async () => {
       const queInfo = await axios.get(
-        `${route}quizbank/createquiz/`
+        `${route.baseURL}quizbank/createquiz/`
         // "http://127.0.0.1:8000/api/v1/quizbank/createquiz/"
       );
       setQuestionInfo(queInfo.data.data);
